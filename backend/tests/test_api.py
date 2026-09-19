@@ -101,6 +101,9 @@ def test_profile_and_friend_routes(client):
     assert client.post("/api/friends", headers=headers(reader), json={"username": friend["username"]}).status_code == 409
     assert client.get("/api/friends", headers=headers(reader)).status_code == 200
     assert client.get("/api/friends/activities", headers=headers(reader)).status_code == 200
+    assert client.delete(f"/api/friends/{friend['id']}", headers=headers(reader)).status_code == 200
+    assert client.get("/api/friends", headers=headers(reader)).get_json() == []
+    assert client.delete(f"/api/friends/{friend['id']}", headers=headers(reader)).status_code == 404
     assert client.get(f"/api/users/{friend['id']}/profile", headers=headers(reader)).status_code == 200
     assert client.get("/api/users/999/profile", headers=headers(reader)).status_code == 404
 

@@ -214,6 +214,18 @@ def create_app():
         db.session.commit()
         return jsonify({"friend": friend_json(friend)}), 201
 
+    @app.delete("/api/friends/<int:friend_id>")
+    def remove_friend(friend_id):
+        user = current_user()
+        if not user:
+            return jsonify({"message": "Morate biti ulogovani."}), 401
+        relation = Friendship.query.filter_by(follower_id=user.id, following_id=friend_id).first()
+        if not relation:
+            return jsonify({"message": "Ovaj korisnik nije na vašoj listi prijatelja."}), 404
+        db.session.delete(relation)
+        db.session.commit()
+        return jsonify({"message": "Prijatelj je uklonjen."})
+
     @app.get("/api/friends")
     def friends():
         user = current_user()

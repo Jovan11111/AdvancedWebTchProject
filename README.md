@@ -12,13 +12,32 @@ Angular aplikacija je dostupna na <http://localhost:4200>.
 
 ## Backend
 
+Windows PowerShell:
+
+```powershell
+cd backend
+py -m venv .venv
+.\.venv\Scripts\Activate.ps1
+py -m pip install -r requirements.txt
+Copy-Item .env.example .env
+.\entrypoint.ps1
+```
+
+Ako PowerShell blokira lokalne skripte, pokreni jednom u PowerShell-u:
+
+```powershell
+Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+```
+
+Linux/macOS:
+
 ```bash
 cd backend
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env
-python app.py
+./entrypoint.sh
 ```
 
 Flask API je dostupan na <http://localhost:5000>, a provera rada na <http://localhost:5000/api/health>.

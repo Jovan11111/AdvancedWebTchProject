@@ -10,7 +10,7 @@ RUN mkdir -p /app/instance /app/static/book-covers
 RUN mkdir -p /app/default-covers && cp /app/static/book-covers/placeholder_book_cover.jpeg /app/default-covers/placeholder_book_cover.jpeg
 
 COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+RUN sed -i 's/\r$//' /entrypoint.sh && chmod +x /entrypoint.sh
 
 EXPOSE 5000
 

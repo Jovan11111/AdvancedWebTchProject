@@ -22,6 +22,7 @@ export class LibraryService {
   adminUsers() { return this.http.get<User[]>(`${this.api}/admin/users`, this.options()); }
   deleteUser(id: number) { return this.http.delete(`${this.api}/admin/users/${id}`, this.options()); }
   addFriend(username: string) { return this.http.post<{ friend: Friend }>(`${this.api}/friends`, { username }, this.options()); }
+  removeFriend(id: number) { return this.http.delete<{ message: string }>(`${this.api}/friends/${id}`, this.options()); }
   friends() { return this.http.get<Friend[]>(`${this.api}/friends`, this.options()); }
   activities() { return this.http.get<{ username: string; bookTitle: string; status: string; updatedAt: string }[]>(`${this.api}/friends/activities`, this.options()); }
   publicProfile(id: number) { return this.http.get<Profile>(`${this.api}/users/${id}/profile`, this.options()); }

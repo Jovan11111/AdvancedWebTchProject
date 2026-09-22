@@ -1,0 +1,10 @@
+import { Component, inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
+import { LibraryService, Book } from './library.service';
+@Component({ standalone: true, imports: [FormsModule, RouterLink], template: `<div class="books-heading"><h1>Biblioteka</h1><form class="search-form" (ngSubmit)="search()" role="search" aria-label="Pretraga knjiga"><label class="visually-hidden" for="book-search">Pretraži knjige po naslovu</label><input id="book-search" name="search" [(ngModel)]="searchText" placeholder="Pretraži knjige"><button type="submit" aria-label="Pokreni pretragu knjiga">Pretraga</button></form></div><section class="book-grid" aria-label="Lista knjiga">@for (book of filteredBooks; track book.id) {<article class="book-card"><a class="book-cover-link" [routerLink]="['/books', book.id]"><img class="book-cover" [src]="book.imageUrl" [alt]="'Naslovna strana knjige ' + book.title"></a><div class="book-card-content"><a class="book-title" [routerLink]="['/books', book.id]">{{ book.title }}</a><span class="book-author">{{ book.author }}</span></div></article>} @empty {<p role="status" aria-live="polite">Nema knjiga koje odgovaraju pretrazi.</p>}</section>@if (error) {<p class="error-message" role="alert">{{ error }}</p>}` })
+export class BooksComponent {
+	private library = inject(LibraryService); books: Book[] = []; filteredBooks: Book[] = []; searchText = ''; error = '';
+	constructor() { this.library.books().subscribe({ next: books => { this.books = books; this.filteredBooks = books; }, error: error => this.error = error.error?.message ?? 'Greška pri učitavanju knjiga.' }); }
+	search() { const query = this.searchText.trim().toLocaleLowerCase(); this.filteredBooks = query ? this.books.filter(book => book.title.toLocaleLowerCase().includes(query)) : this.books; }
+}

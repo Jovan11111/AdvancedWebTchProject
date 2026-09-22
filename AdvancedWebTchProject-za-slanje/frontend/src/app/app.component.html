@@ -1,0 +1,14 @@
+<nav aria-label="Glavna navigacija">
+  @if (user) {
+    <a routerLink="/books" aria-label="Lista svih knjiga">Lista svih knjiga</a>
+    <a routerLink="/friends" aria-label="Aktivnosti prijatelja">Prijatelji</a>
+    <a routerLink="/profile" aria-label="Moj profil">Moj profil</a>
+    @if (user.role === 'admin') { <a routerLink="/admin" aria-label="Admin panel">Admin</a> }
+    <button type="button" aria-label="Odjavi se" (click)="logout()">Logout</button>
+  } @else {
+    <a routerLink="/login">Login</a><a routerLink="/register">Register</a>
+  }
+</nav>
+<main>
+  <router-outlet />
+</main>

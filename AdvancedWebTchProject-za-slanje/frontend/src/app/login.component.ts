@@ -1,0 +1,6 @@
+import { Component, inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
+import { LibraryService } from './library.service';
+@Component({ standalone: true, imports: [FormsModule, RouterLink], template: `<h1>Login</h1><form (ngSubmit)="submit()" aria-labelledby="login-heading"><h2 id="login-heading">Prijavi se</h2><label for="login-username">Username</label><input id="login-username" name="username" [(ngModel)]="username" autocomplete="username" required><label for="login-password">Password</label><input id="login-password" name="password" type="password" [(ngModel)]="password" autocomplete="current-password" required><button type="submit">Login</button></form>@if (error) {<p class="error-message" role="alert" aria-live="assertive">{{ error }}</p>}<p>Nemaš nalog? <a routerLink="/register">Registruj se</a></p>` })
+export class LoginComponent { private library = inject(LibraryService); private router = inject(Router); username = ''; password = ''; error = ''; submit() { this.library.login(this.username, this.password).subscribe({ next: result => { this.library.user = result.user; this.router.navigate(['/books']); }, error: error => this.error = error.error?.message ?? 'Login nije uspeo.' }); } }

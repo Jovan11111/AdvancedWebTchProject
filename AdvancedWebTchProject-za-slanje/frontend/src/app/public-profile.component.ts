@@ -1,0 +1,6 @@
+import { Component, inject } from '@angular/core';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { LibraryService, Profile } from './library.service';
+
+@Component({ standalone: true, imports: [RouterLink], template: `@if (profile) {<h1>Profil: {{ profile.user.username }}</h1><p>{{ profile.user.firstName }} {{ profile.user.lastName }}</p><h2>Pročitane knjige</h2><ul>@for (book of profile.readBooks; track book.id) {<li><a [routerLink]="['/books', book.id]">{{ book.title }}</a></li>}</ul><h2>Lista želja</h2><ul>@for (book of profile.wantedBooks; track book.id) {<li><a [routerLink]="['/books', book.id]">{{ book.title }}</a></li>}</ul><h2>Prijatelji</h2><ul>@for (friend of profile.friends; track friend.id) {<li><a [routerLink]="['/profile/user', friend.id]">{{ friend.username }}</a></li>}</ul>} @else {<p>Učitavanje...</p>}<a routerLink="/friends">Nazad na prijatelje</a>` })
+export class PublicProfileComponent { private library = inject(LibraryService); profile?: Profile; constructor(route: ActivatedRoute) { this.library.publicProfile(Number(route.snapshot.paramMap.get('id'))).subscribe(profile => this.profile = profile); } }

@@ -1,0 +1,97 @@
+.nav{
+    display: inline-block;
+}
+
+.left_but{
+    margin-bottom:60px;
+    vertical-align: top;
+}
+
+.left_but:hover{
+    color:green;
+}
+
+.logo{
+    height:35px;
+    vertical-align: bottom;
+}
+.profilna{
+    border-radius: 50px;
+    vertical-align: bottom;
+    height: 35px;
+    margin-left: 200px;
+}
+.main{
+    display: inline-block;
+    vertical-align: top;
+}
+input{
+    height: 100%;
+    margin-left: 200px;
+    margin-right: 0px;
+    border-right:none;
+}
+.search{
+    height: 100%;
+    color:rgb(58, 58, 58);
+    margin-left: 0px;
+    border-left:none;
+}
+.mic{
+    height: 35px;
+    padding-left: 11px;
+    padding-right: 11px;
+    border-radius: 50px;
+    font-weight: bold ;
+    border: none;
+    margin-left:50px;
+}
+.searchbar{
+    display: inline-block;
+    height:35px;
+}
+.video_previews{
+    margin-top: 10px;
+    background-color: rgb(240, 239, 239);
+    border-top: 2px;
+    border-top-color: gray;
+}
+.thumb{
+    height:240px;
+    display:inline-block
+}
+.chanpic{
+    height: 45px;
+    border: none;
+    border-radius: 45px;
+}
+.video_text{
+    display: inline-block;
+    margin-left:20px;
+}
+.chanel_pic{
+    display:inline-block;
+    vertical-align: top;
+}
+.title{
+    font-size: large;
+    font-weight: 600;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+.chanel_name{
+    font-size: medium;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    color: gray;
+}
+.video_stats{
+    font-size: medium;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    color: gray;
+}
+.video_preview{
+    display: inline-block;
+    margin: 10px;
+}

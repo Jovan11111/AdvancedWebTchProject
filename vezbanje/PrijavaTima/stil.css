@@ -1,0 +1,32 @@
+h1{
+    font-family: Verdana;
+    font-size: 30px;
+    color:#1a5276
+}
+form{
+    font-family: Tahoma;
+    font-size: 14px;
+    color: #2c3e50;
+    background-color: #d6eaf8;
+    display:flex;
+    flex-direction: column;
+}
+body{
+    background-color: white;
+}
+button{
+    background-color: #27ae60;
+    color:white;
+}
+button:hover{
+    background-color: #1e8449;
+}
+button:active{
+    background-color: red;
+}
+@media (max-width: 600px) {
+    form {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prijava na turnir</title>
+    <link rel="stylesheet" href="stil.css" type="text/css">
+</head>
+<body>
+    <header>
+        <h1> Prijava na turnir</h1>
+        <nav>
+            <a href="Pocetna">Pocetna</a>
+            <a href="Prijava">Prijava</a>
+            <a href="mailto:sofija23324@its.edu.rs">Kontakt</a>
+        </nav>
+    </header>
+
+    <main id="mejn"> 
+        <section id="prijava">
+            <h2>Forma za prijavu</h2>
+            <form id="formaprijava">
+                <label for="tim">naziv tima</label>
+                <input type="text" id="tim" name="tim" required>
+                <label for="kategorija">kategorija</label>
+               <select id="kategorija" name="kategorija" required>
+                    <option value="">izaberite kategoriju</option>
+                    <option value="juniori">juniori</option>
+                    <option value="seniori">seniori</option>
+                    <option value="veterani">veterani</option>
+               </select>
+                 <label for="kontakt">Kontakt telefon</label>
+                 <input type="text" id="kontakt" name="kontakt" required>
+                 <label for="e-posta">e-posta</label>
+                 <input type="text" id="mail" name="mail" required>
+                 <label for="brojigraca">broj igraca</label>
+                 <input type="number" id="broj" name="broj" required>
+                <button type="submit">Prijavi tim</button>
+            </form>
+            <h2>Prijave</h2>
+            <ul id="listaPrijava"></ul>
+        </section>
+    </main>
+    <footer>
+        <p>Prijave timova</p>
+    </footer>
+    <script type="text/javascript" src="skripta.js"></script>
+</body>
+</html>

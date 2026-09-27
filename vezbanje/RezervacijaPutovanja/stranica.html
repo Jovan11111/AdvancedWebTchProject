@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="sr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezervacija putovanja</title>
+
+    <link rel="stylesheet" href="stil.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Rezervacija putovanja</h1>
+
+        <nav>
+            <a href="#pocetna">Početna</a>
+            <a href="#rezervacija">Rezervacija</a>
+            <a href="mailto:tvojemail@gmail.com">Kontakt</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section id="rezervacija">
+            <h2>Forma za rezervaciju</h2>
+            <form id="reservationForm">
+
+                <label for="ime">Ime i prezime:</label>
+                <input type="text" id="ime" name="ime" required>
+
+                <label for="email">E-posta:</label>
+                <input type="text" id="email" name="email" required>
+
+                <label for="destinacija">Destinacija:</label>
+                <select id="destinacija" name="destinacija" required>
+                    <option value="">Izaberite destinaciju</option>
+                    <option value="Pariz">Pariz</option>
+                    <option value="Rim">Rim</option>
+                    <option value="Atina">Atina</option>
+                </select>
+
+                <label for="datum">Datum polaska:</label>
+                <input type="date" id="datum" name="datum" required>
+
+                <label for="putnici">Broj putnika:</label>
+                <input type="number" id="putnici" name="putnici" required>
+
+                <button type="submit">Rezerviši</button>
+
+            </form>
+
+            <h2>Rezervacije</h2>
+
+            <ul id="reservationList">
+            </ul>
+
+        </section>
+
+
+    </main>
+    <footer>
+        <p>2026 Rezervacija putovanja</p>
+    </footer>
+    
+
+    <script src="skripta.js"></script>
+
+</body>
+
+</html>
